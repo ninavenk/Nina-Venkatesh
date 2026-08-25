@@ -1,0 +1,1353 @@
+/* =========================================================
+   CAREER PAGE
+   NV — INTERNATIONAL SWIMMER
+
+   STRUCTURE
+   01. Reset
+   02. Background
+   03. Navigation
+   04. Main
+   05. Hero
+   06. Stats
+   07. Timeline
+   08. Achievements
+   09. International
+   10. Closing
+   11. Footer
+   12. Animations
+   13. Mobile
+========================================================= */
+
+
+/* =========================================================
+   01 — RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    min-height: 100%;
+
+    font-family: "Manrope", sans-serif;
+
+    background: #2D5F7E;
+
+    color: #F4F1E8;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   02 — CINEMATIC BACKGROUND
+========================================================= */
+
+.page-bg {
+
+    position: fixed;
+
+    top: -30px;
+    right: -30px;
+    bottom: -30px;
+    left: -30px;
+
+    background-image:
+        url("../images/hero.jpg");
+
+    background-size: cover;
+
+    background-position: center center;
+
+    background-repeat: no-repeat;
+
+    filter:
+        blur(10px)
+        brightness(0.70)
+        saturate(0.90);
+
+    transform: scale(1.045);
+
+    opacity: 0.94;
+
+    z-index: -3;
+
+    pointer-events: none;
+}
+
+
+.page-bg::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        radial-gradient(
+            ellipse at 50% 30%,
+            rgba(255, 255, 255, 0.05),
+            transparent 52%
+        ),
+
+        linear-gradient(
+            180deg,
+            rgba(4, 14, 20, 0.10) 0%,
+            rgba(4, 14, 20, 0.17) 55%,
+            rgba(4, 14, 20, 0.30) 100%
+        );
+}
+
+
+/* =========================================================
+   03 — NAVIGATION
+========================================================= */
+
+.navbar {
+
+    position: fixed;
+
+    top: 28px;
+    left: 0;
+
+    width: 100%;
+
+    padding: 0 40px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    z-index: 1000;
+}
+
+
+.logo {
+
+    color: #F4F1E8;
+
+    text-decoration: none;
+
+    font-family: "Syne", sans-serif;
+
+    font-size: 20px;
+
+    font-weight: 600;
+
+    letter-spacing: -0.04em;
+}
+
+
+.nav-links {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 32px;
+}
+
+
+.nav-links a {
+
+    color: #F4F1E8;
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    font-weight: 500;
+
+    letter-spacing: 0.04em;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.nav-links a:hover {
+
+    opacity: 0.5;
+
+    transform:
+        translateY(-1px);
+}
+
+
+.nav-links .contact-link {
+
+    padding:
+        11px 18px;
+
+    border-radius: 30px;
+
+    background: #F4F1E8;
+
+    color: #171717;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.nav-links .contact-link:hover {
+
+    opacity: 0.85;
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* =========================================================
+   MOBILE BACK
+========================================================= */
+
+.career-back {
+    display: none;
+}
+
+
+/* =========================================================
+   04 — MAIN
+========================================================= */
+
+.career-main {
+
+    position: relative;
+
+    z-index: 1;
+
+    width: 100%;
+
+    padding:
+        145px 40px 110px;
+}
+
+
+/* =========================================================
+   05 — HERO
+========================================================= */
+
+.career-hero {
+
+    max-width: 1050px;
+
+    margin-bottom: 120px;
+
+    animation:
+        careerReveal
+        1.2s
+        cubic-bezier(0.16, 1, 0.3, 1)
+        both;
+}
+
+
+.career-eyebrow {
+
+    margin-bottom: 16px;
+
+    font-size: 9px;
+
+    font-weight: 500;
+
+    letter-spacing: 0.13em;
+
+    opacity: 0.42;
+}
+
+
+.career-hero h1 {
+
+    font-family: "Syne", sans-serif;
+
+    font-size:
+        clamp(6rem, 11vw, 11rem);
+
+    font-weight: 500;
+
+    line-height: 0.78;
+
+    letter-spacing: -0.085em;
+}
+
+
+.career-hero h1 span {
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-style: italic;
+
+    font-weight: 400;
+
+    letter-spacing: -0.055em;
+}
+
+
+.career-intro {
+
+    max-width: 410px;
+
+    margin-top: 28px;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+
+    opacity: 0.58;
+}
+
+
+/* =========================================================
+   06 — KEY STATS
+========================================================= */
+
+.career-stats {
+
+    width: 100%;
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(4, 1fr);
+
+    border-top:
+        1px solid
+        rgba(244, 241, 232, 0.20);
+
+    border-bottom:
+        1px solid
+        rgba(244, 241, 232, 0.20);
+
+    margin-bottom: 150px;
+}
+
+
+.career-stat {
+
+    min-height: 190px;
+
+    padding:
+        25px 25px 25px 0;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: space-between;
+
+    border-right:
+        1px solid
+        rgba(244, 241, 232, 0.16);
+}
+
+
+.career-stat:not(:first-child) {
+
+    padding-left: 25px;
+}
+
+
+.career-stat:last-child {
+
+    border-right: none;
+}
+
+
+.career-stat strong {
+
+    font-family: "Syne", sans-serif;
+
+    font-size:
+        clamp(3rem, 5vw, 5rem);
+
+    font-weight: 500;
+
+    line-height: 0.85;
+
+    letter-spacing: -0.07em;
+}
+
+
+.career-stat span {
+
+    display: block;
+
+    margin-bottom: 6px;
+
+    font-size: 7px;
+
+    font-weight: 500;
+
+    letter-spacing: 0.12em;
+
+    opacity: 0.42;
+}
+
+
+.career-stat p {
+
+    max-width: 180px;
+
+    font-size: 11px;
+
+    line-height: 1.45;
+
+    opacity: 0.65;
+}
+
+
+/* =========================================================
+   SECTION HEADING
+========================================================= */
+
+.section-heading {
+
+    display: grid;
+
+    grid-template-columns:
+        80px 1fr;
+
+    align-items: start;
+
+    margin-bottom: 65px;
+}
+
+
+.section-heading > span {
+
+    padding-top: 8px;
+
+    font-size: 8px;
+
+    letter-spacing: 0.12em;
+
+    opacity: 0.35;
+}
+
+
+.section-heading h2 {
+
+    font-family: "Syne", sans-serif;
+
+    font-size:
+        clamp(4rem, 7vw, 7rem);
+
+    font-weight: 500;
+
+    line-height: 0.82;
+
+    letter-spacing: -0.075em;
+}
+
+
+.section-heading em {
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-style: italic;
+
+    font-weight: 400;
+
+    letter-spacing: -0.05em;
+}
+
+
+/* =========================================================
+   07 — CAREER TIMELINE
+========================================================= */
+
+.career-timeline {
+
+    width: 100%;
+
+    max-width: 1100px;
+
+    margin:
+        0 auto 170px;
+}
+
+
+.timeline-item {
+
+    display: grid;
+
+    grid-template-columns:
+        180px 1fr;
+
+    padding:
+        25px 0;
+
+    border-top:
+        1px solid
+        rgba(244, 241, 232, 0.18);
+}
+
+
+.timeline-item:last-child {
+
+    border-bottom:
+        1px solid
+        rgba(244, 241, 232, 0.18);
+}
+
+
+.timeline-year {
+
+    font-family: "Syne", sans-serif;
+
+    font-size: 17px;
+
+    font-weight: 500;
+
+    letter-spacing: -0.03em;
+
+    opacity: 0.8;
+}
+
+
+.timeline-content {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 30px;
+}
+
+
+.timeline-content p {
+
+    max-width: 250px;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+
+    opacity: 0.7;
+}
+
+
+/* =========================================================
+   08 — ACHIEVEMENTS
+========================================================= */
+
+.career-achievements {
+
+    width: 100%;
+
+    max-width: 1100px;
+
+    margin:
+        0 auto 170px;
+}
+
+
+.achievement-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    border-top:
+        1px solid
+        rgba(244, 241, 232, 0.18);
+}
+
+
+.achievement-grid article {
+
+    min-height: 190px;
+
+    padding:
+        25px 25px 25px 0;
+
+    border-right:
+        1px solid
+        rgba(244, 241, 232, 0.15);
+
+    border-bottom:
+        1px solid
+        rgba(244, 241, 232, 0.18);
+}
+
+
+.achievement-grid article:nth-child(3n + 2),
+.achievement-grid article:nth-child(3n + 3) {
+
+    padding-left: 25px;
+}
+
+
+.achievement-grid article:nth-child(3n) {
+
+    border-right: none;
+}
+
+
+.achievement-grid span {
+
+    font-size: 7px;
+
+    font-weight: 500;
+
+    letter-spacing: 0.12em;
+
+    opacity: 0.4;
+}
+
+
+.achievement-grid h3 {
+
+    margin-top: 35px;
+
+    font-family: "Syne", sans-serif;
+
+    font-size: 25px;
+
+    font-weight: 500;
+
+    line-height: 0.95;
+
+    letter-spacing: -0.05em;
+}
+
+
+.achievement-grid p {
+
+    margin-top: 9px;
+
+    font-size: 9px;
+
+    opacity: 0.48;
+}
+
+
+/* =========================================================
+   09 — INTERNATIONAL
+========================================================= */
+
+.career-international {
+
+    width: 100%;
+
+    max-width: 1100px;
+
+    margin:
+        0 auto 170px;
+}
+
+
+.international-list {
+
+    border-top:
+        1px solid
+        rgba(244, 241, 232, 0.18);
+}
+
+
+.international-item {
+
+    display: grid;
+
+    grid-template-columns:
+        80px 1fr;
+
+    padding:
+        24px 0;
+
+    border-bottom:
+        1px solid
+        rgba(244, 241, 232, 0.18);
+}
+
+
+.international-item > span {
+
+    padding-top: 5px;
+
+    font-size: 7px;
+
+    letter-spacing: 0.1em;
+
+    opacity: 0.35;
+}
+
+
+.international-item h3 {
+
+    font-family: "Syne", sans-serif;
+
+    font-size: 27px;
+
+    font-weight: 500;
+
+    line-height: 1;
+
+    letter-spacing: -0.05em;
+}
+
+
+.international-item p {
+
+    margin-top: 7px;
+
+    font-size: 10px;
+
+    opacity: 0.48;
+}
+
+
+/* =========================================================
+   10 — CLOSING
+========================================================= */
+
+.career-closing {
+
+    min-height: 60vh;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+}
+
+
+.career-closing > p {
+
+    margin-bottom: 20px;
+
+    font-size: 8px;
+
+    letter-spacing: 0.15em;
+
+    opacity: 0.38;
+}
+
+
+.career-closing h2 {
+
+    font-family: "Syne", sans-serif;
+
+    font-size:
+        clamp(5rem, 10vw, 10rem);
+
+    font-weight: 500;
+
+    line-height: 0.78;
+
+    letter-spacing: -0.08em;
+}
+
+
+.career-closing h2 span {
+
+    font-family:
+        "Playfair Display",
+        serif;
+
+    font-style: italic;
+
+    font-weight: 400;
+}
+
+
+/* =========================================================
+   11 — FOOTER
+========================================================= */
+
+.career-footer {
+
+    position: relative;
+
+    z-index: 2;
+
+    width: 100%;
+
+    padding:
+        25px 40px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    font-size: 8px;
+
+    letter-spacing: 0.08em;
+
+    opacity: 0.35;
+}
+
+
+/* =========================================================
+   12 — ANIMATIONS
+========================================================= */
+
+@keyframes careerReveal {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translateY(35px);
+
+        filter:
+            blur(7px);
+    }
+
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+        filter:
+            blur(0);
+    }
+}
+
+
+/* =========================================================
+   13 — MOBILE
+   MOBILE ONLY — DESKTOP ABOVE REMAINS UNTOUCHED
+========================================================= */
+
+@media (max-width: 800px) {
+
+
+    /* =====================================================
+       MOBILE — PAGE
+    ===================================================== */
+
+    html,
+    body {
+
+        width: 100%;
+
+        overflow-x: hidden;
+
+        overflow-y: auto;
+
+        background: transparent;
+    }
+
+
+    body.career-page {
+
+        background: transparent;
+
+        color: #F4F1E8;
+    }
+
+
+    /* =====================================================
+       MOBILE — BACKGROUND
+    ===================================================== */
+
+    .page-bg {
+
+        position: fixed;
+
+        top: -30px;
+        right: -30px;
+        bottom: -30px;
+        left: -30px;
+
+        background-image:
+            url("../images/hero.jpg");
+
+        background-size: cover;
+
+        background-position: center;
+
+        filter:
+            blur(10px)
+            brightness(0.70)
+            saturate(0.90);
+
+        transform:
+            scale(1.045);
+
+        opacity: 0.94;
+
+        z-index: 0;
+    }
+
+
+    /* =====================================================
+       MOBILE — NAVIGATION
+    ===================================================== */
+
+    .navbar {
+
+        position: fixed;
+
+        top: 18px;
+        left: 0;
+
+        width: 100%;
+
+        height: 42px;
+
+        padding:
+            0 20px;
+
+        z-index: 5000;
+    }
+
+
+    .navbar .logo {
+
+        position: absolute;
+
+        left: 50%;
+
+        transform:
+            translateX(-50%);
+
+        font-size: 16px;
+    }
+
+
+    .nav-links {
+
+        display: none;
+    }
+
+
+    .career-back {
+
+        display: block;
+
+        color: #F4F1E8;
+
+        text-decoration: none;
+
+        font-size: 8px;
+
+        font-weight: 500;
+
+        letter-spacing: 0.13em;
+
+        opacity: 0.65;
+    }
+
+
+    /* =====================================================
+       MOBILE — MAIN
+    ===================================================== */
+
+    .career-main {
+
+        position: relative;
+
+        z-index: 2;
+
+        width: 100%;
+
+        padding:
+            105px 20px 80px;
+    }
+
+
+    /* =====================================================
+       MOBILE — HERO
+    ===================================================== */
+
+    .career-hero {
+
+        margin-bottom: 70px;
+    }
+
+
+    .career-eyebrow {
+
+        margin-bottom: 13px;
+
+        font-size: 7px;
+
+        letter-spacing: 0.14em;
+    }
+
+
+    .career-hero h1 {
+
+        font-size:
+            clamp(4.2rem, 18vw, 6.5rem);
+
+        line-height: 0.82;
+
+        letter-spacing: -0.08em;
+    }
+
+
+    .career-intro {
+
+        max-width: 310px;
+
+        margin-top: 20px;
+
+        font-size: 11px;
+
+        line-height: 1.55;
+
+        opacity: 0.6;
+    }
+
+
+    /* =====================================================
+       MOBILE — STATS
+    ===================================================== */
+
+    .career-stats {
+
+        grid-template-columns:
+            1fr 1fr;
+
+        margin-bottom: 95px;
+    }
+
+
+    .career-stat {
+
+        min-height: 150px;
+
+        padding:
+            18px 14px 18px 0;
+
+        border-right:
+            1px solid
+            rgba(244, 241, 232, 0.16);
+
+        border-bottom:
+            1px solid
+            rgba(244, 241, 232, 0.16);
+    }
+
+
+    .career-stat:nth-child(2n) {
+
+        padding-left: 14px;
+
+        border-right: none;
+    }
+
+
+    .career-stat:nth-child(3),
+    .career-stat:nth-child(4) {
+
+        border-bottom: none;
+    }
+
+
+    .career-stat strong {
+
+        font-size:
+            clamp(2.7rem, 12vw, 4rem);
+    }
+
+
+    .career-stat span {
+
+        font-size: 6px;
+    }
+
+
+    .career-stat p {
+
+        font-size: 9px;
+
+        line-height: 1.4;
+    }
+
+
+    /* =====================================================
+       MOBILE — SECTION HEADING
+    ===================================================== */
+
+    .section-heading {
+
+        display: block;
+
+        margin-bottom: 42px;
+    }
+
+
+    .section-heading > span {
+
+        display: block;
+
+        margin-bottom: 13px;
+
+        padding: 0;
+
+        font-size: 7px;
+    }
+
+
+    .section-heading h2 {
+
+        font-size:
+            clamp(3.4rem, 15vw, 5.5rem);
+
+        line-height: 0.84;
+    }
+
+
+    /* =====================================================
+       MOBILE — TIMELINE
+    ===================================================== */
+
+    .career-timeline {
+
+        margin-bottom: 105px;
+    }
+
+
+    .timeline-item {
+
+        grid-template-columns:
+            65px 1fr;
+
+        padding:
+            20px 0;
+    }
+
+
+    .timeline-year {
+
+        font-size: 13px;
+
+        opacity: 0.8;
+    }
+
+
+    .timeline-content {
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 9px;
+    }
+
+
+    .timeline-content p {
+
+        max-width: none;
+
+        font-size: 10px;
+
+        line-height: 1.45;
+
+        opacity: 0.68;
+    }
+
+
+    /* =====================================================
+       MOBILE — ACHIEVEMENTS
+    ===================================================== */
+
+    .career-achievements {
+
+        margin-bottom: 105px;
+    }
+
+
+    .achievement-grid {
+
+        grid-template-columns:
+            1fr 1fr;
+    }
+
+
+    .achievement-grid article {
+
+        min-height: 155px;
+
+        padding:
+            18px 12px 18px 0;
+
+        border-right:
+            1px solid
+            rgba(244, 241, 232, 0.15);
+    }
+
+
+    .achievement-grid article:nth-child(3n + 2),
+    .achievement-grid article:nth-child(3n + 3) {
+
+        padding-left: 12px;
+    }
+
+
+    .achievement-grid article:nth-child(2n) {
+
+        border-right: none;
+
+        padding-left: 12px;
+    }
+
+
+    .achievement-grid h3 {
+
+        margin-top: 25px;
+
+        font-size: 18px;
+
+        line-height: 0.98;
+    }
+
+
+    .achievement-grid p {
+
+        font-size: 8px;
+
+        line-height: 1.4;
+    }
+
+
+    /* =====================================================
+       MOBILE — INTERNATIONAL
+    ===================================================== */
+
+    .career-international {
+
+        margin-bottom: 100px;
+    }
+
+
+    .international-item {
+
+        grid-template-columns:
+            35px 1fr;
+
+        padding:
+            19px 0;
+    }
+
+
+    .international-item > span {
+
+        font-size: 6px;
+    }
+
+
+    .international-item h3 {
+
+        font-size: 20px;
+
+        line-height: 1;
+    }
+
+
+    .international-item p {
+
+        margin-top: 7px;
+
+        font-size: 9px;
+
+        line-height: 1.45;
+    }
+
+
+    /* =====================================================
+       MOBILE — CLOSING
+    ===================================================== */
+
+    .career-closing {
+
+        min-height: 55vh;
+
+        padding:
+            50px 0;
+    }
+
+
+    .career-closing > p {
+
+        font-size: 7px;
+
+        letter-spacing: 0.14em;
+    }
+
+
+    .career-closing h2 {
+
+        font-size:
+            clamp(4.5rem, 20vw, 7rem);
+
+        line-height: 0.8;
+    }
+
+
+    /* =====================================================
+       MOBILE — FOOTER
+    ===================================================== */
+
+    .career-footer {
+
+        position: relative;
+
+        z-index: 2;
+
+        padding:
+            25px 20px;
+
+        font-size: 7px;
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            0.01ms !important;
+
+        scroll-behavior:
+            auto !important;
+    }
+
+}

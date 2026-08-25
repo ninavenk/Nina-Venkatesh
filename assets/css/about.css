@@ -1,0 +1,873 @@
+/* =========================================
+   ABOUT PAGE
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body.about-page {
+    font-family: "Manrope", sans-serif;
+    background: #2D5F7E;
+    color: #171717;
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   03 — NAVIGATION
+========================================================= */
+
+.navbar {
+
+    position: fixed;
+
+    top: 28px;
+    left: 0;
+
+    width: 100%;
+
+    padding: 0 40px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    z-index: 1000;
+}
+
+
+.logo {
+
+    color: #F4F1E8;
+
+    text-decoration: none;
+
+    font-family: "Syne", sans-serif;
+
+    font-size: 20px;
+
+    font-weight: 600;
+
+    letter-spacing: -0.04em;
+}
+
+
+.nav-links {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 32px;
+}
+
+
+.nav-links a {
+
+    color: #F4F1E8;
+
+    text-decoration: none;
+
+    font-size: 12px;
+
+    font-weight: 500;
+
+    letter-spacing: 0.04em;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.nav-links a:hover {
+
+    opacity: 0.5;
+
+    transform:
+        translateY(-1px);
+}
+
+
+.nav-links .contact-link {
+
+    padding:
+        11px 18px;
+
+    border-radius: 30px;
+
+    background: #F4F1E8;
+
+    color: #171717;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.nav-links .contact-link:hover {
+
+    opacity: 0.85;
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* =========================================
+   MAIN
+========================================= */
+
+.about-main {
+    width: 100%;
+    padding: 110px 40px 40px;
+}
+
+
+/* =========================================
+   HERO
+========================================= */
+
+.about-hero {
+    position: relative;
+
+    min-height: 43vh;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding-bottom: 35px;
+
+    overflow: hidden;
+}
+
+.about-hero::before {
+    content: "01";
+
+    position: absolute;
+
+    right: -10px;
+    bottom: -55px;
+
+    font-family: "Syne", sans-serif;
+
+    font-size: clamp(14rem, 25vw, 27rem);
+
+    font-weight: 600;
+
+    line-height: 0.7;
+
+    letter-spacing: -0.1em;
+
+    color: rgba(23, 23, 23, 0.035);
+
+    pointer-events: none;
+}
+
+.about-eyebrow {
+    margin-bottom: 14px;
+
+    font-size: 10px;
+    font-weight: 500;
+
+    letter-spacing: 0.14em;
+
+    opacity: 0.4;
+
+    animation:
+        fadeUp
+        1s
+        cubic-bezier(0.16, 1, 0.3, 1)
+        both;
+}
+
+.about-title {
+    position: relative;
+
+    font-family: "Syne", sans-serif;
+
+    font-size: clamp(5rem, 9vw, 7rem);
+
+    font-weight: 500;
+
+    line-height: 1;
+
+    letter-spacing: -0.09em;
+
+    z-index: 2;
+
+    animation:
+        titleReveal
+        1.3s
+        cubic-bezier(0.16, 1, 0.3, 1)
+        0.05s
+        both;
+}
+
+.about-title span {
+    font-family: "Playfair Display", serif;
+
+    font-style: italic;
+
+    font-weight: 200;
+
+    letter-spacing: -0.06em;
+}
+
+.about-scroll {
+    display: none;
+}
+
+
+/* =========================================
+   STORY
+========================================= */
+
+.about-story {
+    width: 100%;
+
+    padding: 40px 0 45px;
+
+    display: grid;
+
+    grid-template-columns: 0.65fr 1.7fr;
+
+    gap: 55px;
+
+    border-top: 1px solid rgba(23, 23, 23, 0.12);
+}
+
+.story-label {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    max-width: 180px;
+
+    font-size: 10px;
+
+    font-weight: 500;
+
+    letter-spacing: 0.1em;
+
+    opacity: 0.4;
+}
+
+.story-content {
+    max-width: 900px;
+}
+
+.story-content p {
+    max-width: 900px;
+
+    margin-bottom: 18px;
+
+    font-size: 14px;
+
+    line-height: 1.55;
+
+    opacity: 0.62;
+}
+
+.story-content .story-lead {
+    margin-bottom: 20px;
+
+    font-family: "Syne", sans-serif;
+
+    font-size: clamp(1.5rem, 2.2vw, 2.35rem);
+
+    line-height: 1.16;
+
+    letter-spacing: -0.04em;
+
+    opacity: 1;
+}
+
+.story-content strong {
+    color: #e0d4d4;
+
+    font-weight: 600;
+
+    opacity: 1;
+}
+
+.story-ending {
+    margin-top: 18px;
+
+    padding-top: 17px;
+
+    border-top: 1px solid rgba(23, 23, 23, 0.12);
+}
+
+.story-ending span {
+    display: inline;
+
+    margin-left: 6px;
+
+    font-family: "Playfair Display", serif;
+
+    font-style: italic;
+
+    font-size: 1.2em;
+
+    opacity: 1;
+}
+
+
+/* =========================================
+   PERFORMANCE
+========================================= */
+
+.performance {
+    width: 100%;
+
+    padding: 42px 0 45px;
+
+    border-top: 1px solid rgba(237, 231, 231, 0.12);
+
+    display: grid;
+
+    grid-template-columns: 0.65fr 1.7fr;
+
+    gap: 55px;
+}
+
+.performance-heading p {
+    margin-bottom: 12px;
+
+    font-size: 10px;
+
+    letter-spacing: 0.12em;
+
+    opacity: 0.4;
+}
+
+.performance-heading h2 {
+    font-family: "Syne", sans-serif;
+
+    font-size: clamp(3rem, 5vw, 5.5rem);
+
+    font-weight: 500;
+
+    line-height: 0.8;
+
+    letter-spacing: -0.08em;
+}
+
+.performance-heading h2 span {
+    font-family: "Playfair Display", serif;
+
+    font-style: italic;
+
+    font-weight: 400;
+}
+
+
+/* =========================================
+   RECORDS
+========================================= */
+
+.records {
+    border-top: 1px solid rgba(23, 23, 23, 0.15);
+}
+
+.record {
+    padding: 13px 0;
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr 1fr;
+
+    align-items: center;
+
+    border-bottom: 1px solid rgba(23, 23, 23, 0.15);
+
+    transition:
+        padding 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.record:hover {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.record-event {
+    font-size: 9px;
+
+    letter-spacing: 0.1em;
+
+    opacity: 0.45;
+}
+
+.record strong {
+    font-family: "Syne", sans-serif;
+
+    font-size: clamp(2rem, 2.8vw, 3.2rem);
+
+    font-weight: 500;
+
+    line-height: 1;
+
+    letter-spacing: -0.07em;
+}
+
+.record-note {
+    justify-self: end;
+
+    font-size: 8px;
+
+    letter-spacing: 0.08em;
+
+    opacity: 0.4;
+
+    text-align: right;
+}
+
+
+/* =========================================
+   CLOSING
+========================================= */
+
+.about-closing {
+    padding: 30px 0 15px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+}
+
+.about-closing p {
+    font-size: 9px;
+
+    letter-spacing: 0.15em;
+
+    opacity: 0.4;
+}
+
+.about-closing h2 {
+    display: none;
+}
+
+.about-closing a {
+    color: #171717;
+
+    text-decoration: none;
+
+    font-size: 9px;
+
+    font-weight: 500;
+
+    letter-spacing: 0.1em;
+
+    border-bottom: 1px solid rgba(23, 23, 23, 0.3);
+
+    padding-bottom: 4px;
+
+    transition: opacity 0.3s ease;
+}
+
+.about-closing a:hover {
+    opacity: 0.45;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.about-footer {
+    width: 100%;
+
+    padding: 0 40px 18px;
+
+    display: flex;
+
+    justify-content: space-between;
+
+    font-size: 8px;
+
+    letter-spacing: 0.08em;
+
+    opacity: 0.3;
+}
+
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes fadeUp {
+
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+@keyframes titleReveal {
+
+    0% {
+        opacity: 0;
+        transform: translateY(55px);
+        filter: blur(8px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 800px) {
+
+    .about-nav {
+        padding: 0 20px;
+    }
+
+    .about-main {
+        padding: 105px 20px 40px;
+    }
+
+    .about-hero {
+        min-height: 42vh;
+    }
+
+    .about-title {
+        font-size: clamp(4.3rem, 17vw, 7.5rem);
+    }
+
+    .about-story,
+    .performance {
+        display: block;
+
+        padding: 45px 0;
+    }
+
+    .story-label {
+        margin-bottom: 30px;
+    }
+
+    .story-content .story-lead {
+        font-size: 1.5rem;
+    }
+
+    .story-content p {
+        font-size: 14px;
+        line-height: 1.6;
+    }
+
+    .performance-heading {
+        margin-bottom: 35px;
+    }
+
+    .record {
+        grid-template-columns: 1fr;
+
+        gap: 7px;
+
+        padding: 16px 0;
+    }
+
+    .record-note {
+        justify-self: start;
+        text-align: left;
+    }
+
+    .about-closing {
+        padding: 30px 0 20px;
+    }
+
+    .about-footer {
+        padding: 0 20px 18px;
+    }
+
+}
+
+
+
+/* =========================================================
+   02 — CINEMATIC BACKGROUND
+========================================================= */
+
+.page-bg {
+
+    position: fixed;
+
+    top: -30px;
+    right: -30px;
+    bottom: -30px;
+    left: -30px;
+
+    background-image:
+        url("../images/hero.jpg");
+
+    background-size: cover;
+
+    background-position: center center;
+
+    background-repeat: no-repeat;
+
+    filter:
+        blur(10px)
+        brightness(0.70)
+        saturate(0.90);
+
+    transform: scale(1.045);
+
+    opacity: 0.94;
+
+    z-index: -3;
+
+    pointer-events: none;
+}
+
+
+.page-bg::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        radial-gradient(
+            ellipse at 50% 30%,
+            rgba(255, 255, 255, 0.05),
+            transparent 52%
+        ),
+
+        linear-gradient(
+            180deg,
+            rgba(4, 14, 20, 0.10) 0%,
+            rgba(4, 14, 20, 0.17) 55%,
+            rgba(4, 14, 20, 0.30) 100%
+        );
+}
+
+/* =========================================
+   GLOBAL TEXT COLOUR
+========================================= */
+
+body.about-page,
+body.career-page,
+body.gallery-page,
+body.media-page {
+
+    color: #F4F1E8;
+}
+
+
+/* LINKS */
+
+body.about-page a,
+body.career-page a,
+body.gallery-page a,
+body.media-page a {
+
+    color: #F4F1E8;
+}
+
+
+/* HEADINGS */
+
+body.about-page h1,
+body.about-page h2,
+body.about-page h3,
+
+body.career-page h1,
+body.career-page h2,
+body.career-page h3,
+
+body.gallery-page h1,
+body.gallery-page h2,
+body.gallery-page h3,
+
+body.media-page h1,
+body.media-page h2,
+body.media-page h3 {
+
+    color: #F4F1E8;
+}
+
+
+/* =========================================
+   SHARED NAVIGATION
+========================================= */
+
+.navbar {
+
+    position: fixed;
+
+    top: 28px;
+    left: 0;
+
+    width: 100%;
+
+    padding: 0 40px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    z-index: 1000;
+}
+
+
+/* LOGO */
+
+.logo {
+
+    color: #F4F1E8;
+
+    text-decoration: none;
+
+    font-family: "Syne", sans-serif;
+
+    font-size: 20px;
+
+    font-weight: 600;
+
+    letter-spacing: -0.04em;
+
+}
+
+
+/* NAV LINKS */
+
+.nav-links {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 32px;
+}
+
+
+.nav-links a {
+
+    color: #F4F1E8;
+
+    text-decoration: none;
+
+    font-family: "Manrope", sans-serif;
+
+    font-size: 9px;
+
+    font-weight: 500;
+
+    letter-spacing: 0.04em;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.nav-links a:hover {
+
+    opacity: 0.5;
+
+    transform:
+        translateY(-1px);
+}
+
+
+/* CONTACT BUTTON */
+
+.nav-links .contact-link {
+
+    padding:
+        11px 18px;
+
+    border-radius: 30px;
+
+    background: #F4F1E8;
+
+    color: #171717;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.nav-links .contact-link:hover {
+
+    opacity: 0.85;
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* =========================================
+   MOBILE NAVIGATION
+========================================= */
+
+@media (max-width: 800px) {
+
+    .navbar {
+
+        top: 20px;
+
+        padding:
+            0 20px;
+    }
+
+
+    .logo {
+
+        font-size: 17px;
+    }
+
+
+    .nav-links {
+
+        gap: 14px;
+    }
+
+
+    .nav-links a {
+
+        font-size: 7px;
+    }
+
+
+    .nav-links .contact-link {
+
+        padding:
+            8px 12px;
+    }
+
+}
