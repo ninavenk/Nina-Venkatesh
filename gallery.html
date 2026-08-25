@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Gallery — NV</title>
+
+
+    <!-- FONTS -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Syne:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <!-- GALLERY CSS -->
+
+    <link
+        rel="stylesheet"
+        href="assets/css/gallery.css"
+    >
+
+</head>
+
+
+    <body class="gallery-page">
+
+        <div class="page-bg"></div>
+
+
+        <!-- =========================================
+            NAVIGATION
+        ========================================== -->
+
+        <header class="navbar">
+
+            <a
+                href="index.html"
+                class="gallery-back"
+                id="gallery-back"
+            >
+                ← BACK
+            </a>
+
+            <a href="index.html" class="logo">
+                NV
+            </a>
+
+            <nav class="nav-links">
+
+                <a href="about.html">ABOUT</a>
+
+                <a href="career.html">CAREER</a>
+
+                <a href="gallery.html">GALLERY</a>
+
+                <a href="media.html">MEDIA</a>
+
+                <a href="contact.html" class="contact-link">
+                    CONTACT
+                </a>
+
+            </nav>
+
+        </header>
+
+
+    <!-- =========================================
+         MAIN GALLERY
+    ========================================== -->
+
+    <main class="gallery-main">
+
+
+        <!-- INTRO -->
+
+        <section class="gallery-intro">
+
+            <p class="gallery-eyebrow">
+                01 — 25
+            </p>
+
+            <h1>
+                The <span>Gallery.</span>
+            </h1>
+
+            <p class="gallery-description">
+                Life between the lanes.
+            </p>
+
+        </section>
+
+
+
+        <!-- =====================================
+             WATERFALL GALLERY
+        ====================================== -->
+
+        <section class="waterfall" id="gallery-grid"></section>
+
+    </main>
+
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================= -->
+
+    <footer class="gallery-footer">
+
+        <span>
+            NV — INTERNATIONAL SWIMMER
+        </span>
+
+        <span>
+            © 2026
+        </span>
+
+    </footer>
+
+
+
+    <!-- =========================================
+         LIGHTBOX
+    ========================================= -->
+
+    <div
+        class="lightbox"
+        id="lightbox"
+    >
+
+        <!-- CLOSE -->
+
+        <button
+            class="lightbox-close"
+            id="lightboxClose"
+            type="button"
+        >
+            CLOSE
+        </button>
+
+
+        <!-- COUNTER -->
+
+        <div
+            class="lightbox-counter"
+            id="lightboxCounter"
+        >
+            01 / 15
+        </div>
+
+
+        <!-- PREVIOUS -->
+
+        <button
+            class="lightbox-prev"
+            id="lightboxPrev"
+            type="button"
+            aria-label="Previous image"
+        >
+            ←
+        </button>
+
+
+        <!-- IMAGE -->
+
+        <div class="lightbox-image-wrap">
+
+            <img
+                src=""
+                alt="Nina Venkatesh"
+                class="lightbox-image"
+                id="lightboxImage"
+            >
+
+        </div>
+
+
+        <!-- NEXT -->
+
+        <button
+            class="lightbox-next"
+            id="lightboxNext"
+            type="button"
+            aria-label="Next image"
+        >
+            →
+        </button>
+
+    </div>
+
+
+    <!-- =========================================
+         GALLERY JAVASCRIPT
+    ========================================= -->
+
+    <script src="assets/js/gallery.js"></script>
+
+</body>
+
+</html>
