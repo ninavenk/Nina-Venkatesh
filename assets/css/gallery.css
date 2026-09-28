@@ -1,0 +1,1199 @@
+/* =========================================
+   GALLERY PAGE
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body.gallery-page {
+    font-family: "Manrope", sans-serif;
+    background: #2D5F7E;
+    color: #F4F8FB;
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   MAIN
+========================================= */
+
+.gallery-main {
+    width: 100%;
+    padding: 135px 40px 100px;
+}
+
+.gallery-back {
+    display: none;
+}
+
+
+/* =========================================
+   INTRO
+========================================= */
+
+.gallery-intro {
+    max-width: 1000px;
+    margin-bottom: 90px;
+
+    animation:
+        introReveal
+        1.3s
+        cubic-bezier(0.16, 1, 0.3, 1)
+        both;
+}
+
+.gallery-eyebrow {
+    margin-bottom: 15px;
+
+    font-size: 9px;
+    font-weight: 500;
+
+    letter-spacing: 0.12em;
+    opacity: 0.4;
+}
+
+.gallery-intro h1 {
+    font-family: "Syne", sans-serif;
+
+    font-size: clamp(5rem, 10vw, 10rem);
+    font-weight: 500;
+
+    line-height: 0.8;
+    letter-spacing: -0.08em;
+}
+
+.gallery-intro h1 span {
+    font-family: "Playfair Display", serif;
+
+    font-style: italic;
+    font-weight: 400;
+
+    letter-spacing: -0.05em;
+}
+
+.gallery-description {
+    margin-top: 22px;
+
+    font-size: 11px;
+    opacity: 0.45;
+}
+
+
+/* =========================================
+   WATERFALL GALLERY
+========================================= */
+
+.waterfall {
+    width: 100%;
+
+    column-count: 3;
+    column-gap: 10px;
+}
+
+
+/* =========================================
+   GALLERY ITEMS
+========================================= */
+
+.gallery-item {
+    position: relative;
+
+    width: 100%;
+
+    margin: 0 0 10px;
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    break-inside: avoid;
+
+    animation:
+        imageReveal
+        1.2s
+        cubic-bezier(0.16, 1, 0.3, 1)
+        both;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+
+    display: block;
+
+    object-fit: contain;
+
+    transition:
+        transform 0.8s
+        cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.gallery-item:hover img {
+    transform: scale(1.025);
+}
+
+
+/* =========================================
+   IMAGE NUMBERS
+========================================= */
+
+.gallery-item figcaption {
+    position: absolute;
+
+    left: 10px;
+    bottom: 9px;
+
+    color: #ffffff;
+
+    font-size: 8px;
+    font-weight: 500;
+
+    letter-spacing: 0.1em;
+
+    opacity: 0;
+
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover figcaption {
+    opacity: 0.8;
+}
+
+
+/* =========================================
+   FOOTER
+========================================= */
+
+.gallery-footer {
+    width: 100%;
+
+    padding: 50px 40px 25px;
+
+    display: flex;
+    justify-content: space-between;
+
+    font-size: 8px;
+    letter-spacing: 0.08em;
+
+    opacity: 0.35;
+}
+
+
+/* =========================================
+   LIGHTBOX
+========================================= */
+
+.lightbox {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100vh;
+
+    background: rgba(10, 10, 10, 0.97);
+
+    z-index: 9999;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    transition:
+        opacity 0.45s ease,
+        visibility 0.45s ease;
+}
+
+
+/* OPEN */
+
+.lightbox.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+
+/* =========================================
+   LIGHTBOX IMAGE
+========================================= */
+
+.lightbox-image-wrap {
+    width: 85vw;
+    height: 88vh;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-image {
+    max-width: 100%;
+    max-height: 100%;
+
+    width: auto;
+    height: auto;
+
+    display: block;
+
+    object-fit: contain;
+
+    opacity: 1;
+    transform: scale(1);
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.4s
+        cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+
+/* IMAGE CHANGE */
+
+.lightbox-image.changing {
+    opacity: 0;
+    transform: scale(0.96);
+}
+
+
+/* =========================================
+   LIGHTBOX CLOSE
+========================================= */
+
+.lightbox-close {
+    position: absolute;
+
+    top: 30px;
+    right: 40px;
+
+    border: none;
+    background: none;
+
+    color: #F4F0E8;
+
+    font-family: "Manrope", sans-serif;
+
+    font-size: 9px;
+    font-weight: 500;
+
+    letter-spacing: 0.12em;
+
+    cursor: pointer;
+
+    z-index: 5;
+
+    opacity: 0.6;
+
+    transition: opacity 0.3s ease;
+}
+
+.lightbox-close:hover {
+    opacity: 1;
+}
+
+
+/* =========================================
+   LIGHTBOX COUNTER
+========================================= */
+
+.lightbox-counter {
+    position: absolute;
+
+    top: 30px;
+    left: 40px;
+
+    color: #F4F0E8;
+
+    font-family: "Manrope", sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 0.1em;
+
+    opacity: 0.5;
+
+    z-index: 5;
+}
+
+
+/* =========================================
+   LIGHTBOX ARROWS
+========================================= */
+
+.lightbox-prev,
+.lightbox-next {
+    position: absolute;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    border: none;
+    background: none;
+
+    color: #F4F0E8;
+
+    font-family: "Manrope", sans-serif;
+
+    font-size: 25px;
+    font-weight: 300;
+
+    cursor: pointer;
+
+    z-index: 5;
+
+    opacity: 0.45;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+.lightbox-prev {
+    left: 35px;
+}
+
+.lightbox-next {
+    right: 35px;
+}
+
+.lightbox-prev:hover {
+    opacity: 1;
+
+    transform:
+        translate(-5px, -50%);
+}
+
+.lightbox-next:hover {
+    opacity: 1;
+
+    transform:
+        translate(5px, -50%);
+}
+
+
+/* =========================================
+   LOCK PAGE WHEN LIGHTBOX IS OPEN
+========================================= */
+
+body.lightbox-open {
+    overflow: hidden;
+}
+
+
+/* =========================================
+   PAGE ANIMATIONS
+========================================= */
+
+@keyframes introReveal {
+
+    0% {
+        opacity: 0;
+        transform: translateY(35px);
+        filter: blur(7px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        filter: blur(0);
+    }
+
+}
+
+@keyframes imageReveal {
+
+    0% {
+        opacity: 0;
+        transform: translateY(35px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   GALLERY BACKGROUND
+========================================================= */
+
+.page-bg {
+
+    position: fixed;
+
+    top: -30px;
+    right: -30px;
+    bottom: -30px;
+    left: -30px;
+
+    background-image:
+        url("../images/hero.jpg");
+
+    background-size: cover;
+
+    background-position: center center;
+
+    background-repeat: no-repeat;
+
+    filter:
+        blur(10px)
+        brightness(0.70)
+        saturate(0.90);
+
+    transform: scale(1.045);
+
+    opacity: 0.94;
+
+    z-index: -3;
+
+    pointer-events: none;
+}
+
+
+/* =========================================
+   BACKGROUND OVERLAY
+========================================= */
+
+.page-bg::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 0;
+
+    background:
+
+        radial-gradient(
+            ellipse at 50% 30%,
+            rgba(255, 255, 255, 0.05),
+            transparent 52%
+        ),
+
+        linear-gradient(
+            180deg,
+            rgba(4, 14, 20, 0.10) 0%,
+            rgba(4, 14, 20, 0.17) 55%,
+            rgba(4, 14, 20, 0.30) 100%
+        );
+}
+
+
+/* =========================================================
+   GLOBAL PAGE COLOURS
+========================================================= */
+
+body.about-page,
+body.career-page,
+body.gallery-page,
+body.media-page {
+
+    color: #F4F1E8;
+}
+
+
+body.about-page a,
+body.career-page a,
+body.gallery-page a,
+body.media-page a {
+
+    color: #F4F1E8;
+}
+
+
+body.about-page h1,
+body.about-page h2,
+body.about-page h3,
+
+body.career-page h1,
+body.career-page h2,
+body.career-page h3,
+
+body.gallery-page h1,
+body.gallery-page h2,
+body.gallery-page h3,
+
+body.media-page h1,
+body.media-page h2,
+body.media-page h3 {
+
+    color: #F4F1E8;
+}
+
+
+/* =========================================================
+   SHARED NAVIGATION
+========================================================= */
+
+.navbar {
+
+    position: fixed;
+
+    top: 28px;
+    left: 0;
+
+    width: 100%;
+
+    padding: 0 40px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    z-index: 1000;
+}
+
+
+.logo {
+
+    color: #F4F1E8;
+
+    text-decoration: none;
+
+    font-family: "Syne", sans-serif;
+
+    font-size: 20px;
+
+    font-weight: 600;
+
+    letter-spacing: -0.04em;
+}
+
+
+.nav-links {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 32px;
+}
+
+
+.nav-links a {
+
+    color: #F4F1E8;
+
+    text-decoration: none;
+
+    font-family: "Manrope", sans-serif;
+
+    font-size: 9px;
+
+    font-weight: 500;
+
+    letter-spacing: 0.04em;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.nav-links a:hover {
+
+    opacity: 0.5;
+
+    transform:
+        translateY(-1px);
+}
+
+
+.nav-links .contact-link {
+
+    padding:
+        11px 18px;
+
+    border-radius: 30px;
+
+    background: #F4F1E8;
+
+    color: #171717;
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+
+.nav-links .contact-link:hover {
+
+    opacity: 0.85;
+
+    transform:
+        translateY(-2px);
+}
+
+
+/* =========================================================
+   MOBILE GALLERY
+   EVERYTHING BELOW THIS POINT IS MOBILE ONLY
+========================================================= */
+
+@media (max-width: 800px) {
+
+
+    /* =====================================================
+       MOBILE — PAGE
+    ===================================================== */
+
+    html,
+    body {
+
+        width: 100%;
+
+        min-height: 100%;
+
+        overflow-x: hidden;
+
+        overflow-y: auto;
+
+        background: transparent;
+    }
+
+
+    body.gallery-page {
+
+        position: relative;
+
+        background: transparent;
+
+        color: #F4F1E8;
+    }
+
+
+    /* =====================================================
+       MOBILE — CINEMATIC BACKGROUND
+    ===================================================== */
+
+    .page-bg {
+
+        position: fixed;
+
+        top: -30px;
+        right: -30px;
+        bottom: -30px;
+        left: -30px;
+
+        background-image:
+            url("../images/hero.jpg");
+
+        background-size: cover;
+
+        background-position: center center;
+
+        background-repeat: no-repeat;
+
+        filter:
+            blur(10px)
+            brightness(0.70)
+            saturate(0.90);
+
+        transform: scale(1.045);
+
+        opacity: 0.94;
+
+        z-index: 0;
+
+        pointer-events: none;
+    }
+
+
+    .page-bg::after {
+
+        background:
+
+            radial-gradient(
+                ellipse at 50% 30%,
+                rgba(255, 255, 255, 0.05),
+                transparent 52%
+            ),
+
+            linear-gradient(
+                180deg,
+                rgba(4, 14, 20, 0.10),
+                rgba(4, 14, 20, 0.22)
+            );
+    }
+
+
+    /* =====================================================
+       MOBILE — CONTENT LAYER
+    ===================================================== */
+
+    .gallery-main {
+
+        position: relative;
+
+        z-index: 2;
+
+        width: 100%;
+
+        padding:
+            105px 18px 70px;
+
+        background: transparent;
+    }
+
+
+    /* =====================================================
+       MOBILE — NAVBAR
+    ===================================================== */
+
+    .navbar {
+
+        position: fixed;
+
+        top: 18px;
+        left: 0;
+
+        width: 100%;
+
+        height: 42px;
+
+        padding:
+            0 20px;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: space-between;
+
+        z-index: 5000;
+    }
+
+
+    /*
+     * Only BACK + NV on mobile.
+     * Desktop navigation disappears.
+     */
+
+    .gallery-back {
+
+        display: block;
+
+        color: #F4F1E8;
+
+        text-decoration: none;
+
+        font-family: "Manrope", sans-serif;
+
+        font-size: 8px;
+
+        font-weight: 500;
+
+        letter-spacing: 0.13em;
+
+        opacity: 0.62;
+
+        transition:
+            opacity 0.3s ease,
+            transform 0.3s ease;
+    }
+
+
+    .gallery-back:active {
+
+        opacity: 1;
+
+        transform:
+            translateX(-3px);
+    }
+
+
+    .navbar .logo {
+
+        position: absolute;
+
+        left: 50%;
+
+        transform:
+            translateX(-50%);
+
+        font-size: 16px;
+
+        pointer-events: none;
+    }
+
+
+    .navbar .nav-links {
+
+        display: none !important;
+    }
+
+
+    /* =====================================================
+       MOBILE — INTRO
+    ===================================================== */
+
+    .gallery-intro {
+
+        width: 100%;
+
+        max-width: none;
+
+        margin-bottom: 42px;
+
+        animation:
+            introReveal
+            1s
+            cubic-bezier(0.16, 1, 0.3, 1)
+            both;
+    }
+
+
+    .gallery-eyebrow {
+
+        margin-bottom: 12px;
+
+        font-size: 7px;
+
+        font-weight: 500;
+
+        letter-spacing: 0.14em;
+
+        opacity: 0.42;
+    }
+
+
+    .gallery-intro h1 {
+
+        font-family: "Syne", sans-serif;
+
+        font-size:
+            clamp(3.7rem, 17vw, 6.3rem);
+
+        font-weight: 500;
+
+        line-height: 0.83;
+
+        letter-spacing: -0.075em;
+    }
+
+
+    .gallery-intro h1 span {
+
+        font-family:
+            "Playfair Display",
+            serif;
+
+        font-style: italic;
+
+        font-weight: 400;
+
+        letter-spacing: -0.05em;
+    }
+
+
+    .gallery-description {
+
+        margin-top: 15px;
+
+        font-size: 10px;
+
+        line-height: 1.5;
+
+        opacity: 0.46;
+    }
+
+
+    /* =====================================================
+       MOBILE — FULL WIDTH WATERFALL
+    ===================================================== */
+
+    .waterfall {
+
+        width: 100% !important;
+
+        max-width: none !important;
+
+        margin: 0 !important;
+
+        padding: 0 !important;
+
+        /*
+         * Grid is more reliable than column-count
+         * on mobile Safari.
+         */
+
+        display: grid !important;
+
+        grid-template-columns:
+            minmax(0, 1fr);
+
+        column-count: initial !important;
+
+        column-gap: 0 !important;
+
+        row-gap: 10px;
+    }
+
+
+    /* =====================================================
+       MOBILE — GALLERY ITEMS
+    ===================================================== */
+
+    .gallery-item {
+
+        position: relative;
+
+        width: 100% !important;
+
+        max-width: none !important;
+
+        min-width: 0 !important;
+
+        margin: 0 !important;
+
+        padding: 0 !important;
+
+        overflow: hidden;
+
+        break-inside: auto;
+
+        cursor: pointer;
+    }
+
+
+    .gallery-item img {
+
+        width: 100% !important;
+
+        max-width: 100% !important;
+
+        height: auto !important;
+
+        min-width: 0 !important;
+
+        display: block;
+
+        object-fit: contain;
+
+        transform: none !important;
+    }
+
+
+    .gallery-item figcaption {
+
+        left: 12px;
+
+        bottom: 10px;
+
+        font-size: 7px;
+
+        opacity: 0.78;
+    }
+
+
+    /* =====================================================
+       MOBILE — FOOTER
+    ===================================================== */
+
+    .gallery-footer {
+
+        position: relative;
+
+        z-index: 2;
+
+        width: 100%;
+
+        padding:
+            35px 20px 25px;
+
+        display: flex;
+
+        justify-content: space-between;
+
+        gap: 20px;
+
+        font-size: 7px;
+
+        letter-spacing: 0.08em;
+
+        opacity: 0.38;
+
+        background: transparent;
+    }
+
+
+    /* =====================================================
+       MOBILE — LIGHTBOX
+    ===================================================== */
+
+    .lightbox {
+
+        position: fixed;
+
+        inset: 0;
+
+        width: 100vw;
+
+        height: 100dvh;
+
+        background:
+            rgba(5, 10, 15, 0.97);
+
+        z-index: 9999;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+    }
+
+
+    .lightbox-image-wrap {
+
+        width: 88vw;
+
+        height: 76dvh;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+    }
+
+
+    .lightbox-image {
+
+        max-width: 100%;
+
+        max-height: 100%;
+
+        width: auto;
+
+        height: auto;
+
+        object-fit: contain;
+    }
+
+
+    .lightbox-close {
+
+        top: 20px;
+
+        right: 20px;
+
+        font-size: 8px;
+
+        letter-spacing: 0.13em;
+    }
+
+
+    .lightbox-counter {
+
+        top: 20px;
+
+        left: 20px;
+
+        font-size: 8px;
+    }
+
+
+    .lightbox-prev,
+    .lightbox-next {
+
+        font-size: 23px;
+
+        opacity: 0.55;
+    }
+
+
+    .lightbox-prev {
+
+        left: 12px;
+    }
+
+
+    .lightbox-next {
+
+        right: 12px;
+    }
+
+
+    /* =====================================================
+       MOBILE — HIDE HOMEPAGE-ONLY GALLERY SECTION
+       
+       Safety net in case the section is accidentally left
+       in gallery.html.
+    ===================================================== */
+
+    .mobile-gallery-section {
+
+        display: none !important;
+    }
+
+
+    /* =====================================================
+       MOBILE — GALLERY PAGE DIVIDER
+    ===================================================== */
+
+    .gallery-main::after {
+
+        content: "";
+
+        display: block;
+
+        width: 100%;
+
+        height: 1px;
+
+        margin-top: 55px;
+
+        background:
+            linear-gradient(
+                90deg,
+                transparent,
+                rgba(244, 241, 232, 0.28),
+                transparent
+            );
+    }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+
+        animation-duration:
+            0.01ms !important;
+
+        animation-iteration-count:
+            1 !important;
+
+        transition-duration:
+            0.01ms !important;
+
+        scroll-behavior:
+            auto !important;
+    }
+
+}
