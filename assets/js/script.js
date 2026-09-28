@@ -1,3 +1,52 @@
+/* =====================================================
+   DESKTOP ANCHOR NAVIGATION
+   Land each one-page section exactly at the top.
+   ===================================================== */
+
+if (window.innerWidth >= 801) {
+
+    document.querySelectorAll(
+        '.nav-links a[href^="#"]'
+    ).forEach(link => {
+
+        link.addEventListener("click", event => {
+
+            const targetId =
+                link.getAttribute("href");
+
+            if (!targetId || targetId === "#") {
+                return;
+            }
+
+            const target =
+                document.querySelector(targetId);
+
+            if (!target) {
+                return;
+            }
+
+            event.preventDefault();
+
+            const targetTop =
+                target.getBoundingClientRect().top +
+                window.scrollY;
+
+            window.scrollTo({
+                top: targetTop,
+                behavior: "smooth"
+            });
+
+            history.replaceState(
+                null,
+                "",
+                targetId
+            );
+        });
+
+    });
+
+}
+
 /* =========================================================
    ONE-PAGE SITE — MOBILE FINAL JS
    Desktop behavior untouched.
